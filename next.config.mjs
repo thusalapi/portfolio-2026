@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath: '/portfolio-2026',
+  assetPrefix: '/portfolio-2026/',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -44,7 +48,6 @@ const nextConfig = {
     },
   ],
   compress: true,
-  swcMinify: true,
   reactStrictMode: true,
   poweredByHeader: false,
 }

@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -13,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/",
       },
     ],
-    sitemap: "https://thusala.me/sitemap.xml",
+    sitemap: "https://thusalapi.github.io/portfolio-2026/sitemap.xml",
   };
 }
