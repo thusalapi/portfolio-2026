@@ -1,26 +1,26 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border'
-          : 'bg-transparent'
+          ? "bg-background/80 backdrop-blur-md border-b border-border"
+          : "bg-transparent"
       }`}
     >
       <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -28,7 +28,7 @@ export function Header() {
           href="/"
           className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
         >
-          Thusala
+          Thusala Piyarisi
         </Link>
 
         <div className="flex gap-8 items-center">
@@ -59,5 +59,5 @@ export function Header() {
         </div>
       </nav>
     </header>
-  )
+  );
 }

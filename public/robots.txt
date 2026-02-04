@@ -4,7 +4,7 @@ Disallow: /admin
 Disallow: /.next
 
 # Sitemaps
-Sitemap: https://thusalapi.dev/sitemap.xml
+Sitemap: https://thusala.me/sitemap.xml
 
 # Crawl delay to be respectful
 Crawl-delay: 1
