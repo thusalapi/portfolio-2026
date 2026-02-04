@@ -77,8 +77,7 @@ export function Hero() {
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed max-w-lg">
               I architect scalable solutions that bridge business vision and
               technical excellence. Specializing in modern full-stack
-              development, microservices, and leading teams to ship products
-              that matter.
+              development and microservices to ship products that matter.
             </p>
 
             {/* Social Links */}
