@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/",
       },
     ],
-    sitemap: "https://thusalapi.github.io/portfolio-2026/sitemap.xml",
+    sitemap: "https://thusala.me/sitemap.xml",
   };
 }

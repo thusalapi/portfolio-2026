@@ -2,7 +2,7 @@
 
 A modern, minimalist portfolio website built with Next.js, showcasing professional work and personal branding with an Apple-inspired design aesthetic.
 
-[![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-24292e?style=for-the-badge&logo=github)](https://thusalapi.github.io/portfolio-2026/)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://thusala.me)
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
 ## Overview
@@ -47,21 +47,24 @@ pnpm dev
 
 ## Deployment
 
-This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
+This portfolio is automatically deployed to Vercel. To deploy:
+
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically build and deploy on every push to main
+3. Your site will be available at the Vercel-provided URL or your custom domain
 
 ### Manual Deployment
 
-To deploy manually:
-
 ```bash
+# Install dependencies
+pnpm install
+
 # Build for production
 pnpm build
 
-# Export static files
-pnpm export
+# Start production server
+pnpm start
 ```
-
-The built files will be in the `out/` directory, ready for deployment.
 
 ## Project Structure
 
