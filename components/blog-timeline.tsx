@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 const blogPosts = [
@@ -79,6 +80,52 @@ const timelineEvents = [
 ]
 
 export function BlogAndTimeline() {
+  const [visibleItems, setVisibleItems] = useState<number[]>([])
+  const [lineHeight, setLineHeight] = useState(0)
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const lineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px',
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-index') || '-1')
+          if (index !== -1) {
+            setVisibleItems((prev) => [...new Set([...prev, index])])
+          }
+        }
+      })
+    }, observerOptions)
+
+    const items = document.querySelectorAll('[data-timeline-item]')
+    items.forEach((item) => observer.observe(item))
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (timelineRef.current && lineRef.current) {
+        const rect = timelineRef.current.getBoundingClientRect()
+        const viewportHeight = window.innerHeight
+        const scrollProgress = Math.max(
+          0,
+          Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height))
+        )
+        setLineHeight(scrollProgress * 100)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <section id="blog" className="py-24 px-6 bg-card">
       <div className="max-w-5xl mx-auto">
@@ -103,7 +150,13 @@ export function BlogAndTimeline() {
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                data-timeline-item
+                data-index={idx}
+                className="group p-6 border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 opacity-0 animate-in fade-in slide-in-from-bottom-4 fill-mode-both"
+                style={{
+                  animationDelay: `${idx * 100}ms`,
+                  animationDuration: '600ms',
+                }}
               >
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors flex-1">
@@ -139,8 +192,8 @@ export function BlogAndTimeline() {
         </div>
 
         {/* Timeline Section */}
-        <div className="pt-24 border-t border-border">
-          <div className="mb-16 space-y-4">
+        <div className="pt-24 border-t border-border" ref={timelineRef}>
+          <div className="mb-16 space-y-4 opacity-0 animate-in fade-in slide-in-from-bottom-4 fill-mode-both" style={{ animationDuration: '600ms' }}>
             <p className="text-sm font-medium text-primary tracking-wide uppercase">
               Career Path
             </p>
@@ -149,45 +202,68 @@ export function BlogAndTimeline() {
             </h2>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-8 relative">
             {timelineEvents.map((event, idx) => (
-              <div key={idx} className="relative pl-8 md:pl-12">
+              <div
+                key={idx}
+                data-timeline-item
+                data-index={idx + blogPosts.length}
+                className={`relative pl-8 md:pl-12 opacity-0 animate-in fade-in slide-in-from-left-4 fill-mode-both transition-all duration-500 ${
+                  visibleItems.includes(idx + blogPosts.length)
+                    ? 'opacity-100'
+                    : ''
+                }`}
+                style={{
+                  animationDelay: `${(idx + blogPosts.length) * 100}ms`,
+                  animationDuration: '700ms',
+                }}
+              >
                 {/* Timeline line */}
                 {idx !== timelineEvents.length - 1 && (
-                  <div className="absolute left-3 md:left-5 top-10 bottom-0 w-0.5 bg-border" />
+                  <div className="absolute left-3 md:left-5 top-10 bottom-0 w-0.5 bg-gradient-to-b from-border via-border to-transparent overflow-hidden">
+                    <div
+                      className="w-full h-full bg-gradient-to-b from-primary via-primary/50 to-transparent transition-all duration-1000"
+                      style={{
+                        scaleY: lineHeight / 100,
+                        transformOrigin: 'top',
+                      }}
+                    />
+                  </div>
                 )}
 
                 {/* Timeline dot */}
                 <div
-                  className={`absolute left-0 top-0 w-6 h-6 md:w-8 md:h-8 rounded-full border-2 flex items-center justify-center ${
+                  className={`absolute left-0 top-0 w-6 h-6 md:w-8 md:h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
                     event.current
-                      ? 'border-primary bg-primary'
-                      : 'border-border bg-background'
+                      ? 'border-primary bg-primary shadow-lg shadow-primary/20'
+                      : visibleItems.includes(idx + blogPosts.length)
+                      ? 'border-primary bg-primary/10 hover:border-primary hover:bg-primary/20'
+                      : 'border-border bg-background hover:border-primary/50'
                   }`}
                 >
                   {event.current && (
-                    <div className="w-2 h-2 bg-background rounded-full" />
+                    <div className="w-2 h-2 bg-background rounded-full animate-pulse" />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="space-y-2">
+                <div className="space-y-2 group/timeline cursor-default">
                   <div className="flex flex-wrap items-baseline gap-2 md:gap-3">
-                    <span className="text-sm font-bold text-primary">
+                    <span className="text-sm font-bold text-primary group-hover/timeline:text-primary/80 transition-colors">
                       {event.year}
                     </span>
                     <span className="text-sm text-foreground/60">{event.month}</span>
                     {event.current && (
-                      <span className="text-xs font-semibold px-2.5 py-0.5 bg-primary text-primary-foreground rounded-full">
+                      <span className="text-xs font-semibold px-2.5 py-0.5 bg-primary text-primary-foreground rounded-full animate-pulse">
                         Current
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">
+                  <h3 className="text-xl font-semibold text-foreground group-hover/timeline:text-primary transition-colors duration-300">
                     {event.title}
                   </h3>
                   <p className="text-primary font-medium">{event.subtitle}</p>
-                  <p className="text-foreground/70 leading-relaxed">
+                  <p className="text-foreground/70 leading-relaxed group-hover/timeline:text-foreground/90 transition-colors duration-300">
                     {event.description}
                   </p>
                 </div>
