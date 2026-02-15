@@ -1,5 +1,5 @@
 export function StructuredData() {
-  const jsonLd = {
+  const personData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Thusala Piyarisi",
@@ -54,10 +54,30 @@ export function StructuredData() {
     ],
   };
 
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Thusala Piyarisi - Full-Stack Developer",
+    url: "https://thusala.me",
+    description:
+      "Full-Stack Developer specializing in modern web development, microservices architecture, and scalable solutions.",
+    author: {
+      "@type": "Person",
+      name: "Thusala Piyarisi",
+    },
+    inLanguage: "en-US",
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
+      />
+    </>
   );
 }

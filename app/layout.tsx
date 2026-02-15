@@ -12,6 +12,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thusala.me"),
   title: {
     default: "Thusala Piyarisi - Full-Stack Developer & Problem Solver",
     template: "%s | Thusala Piyarisi",
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     creator: "@thusalapov",
   },
   alternates: {
-    canonical: "https://thusala.me",
+    canonical: "/",
   },
   icons: {
     icon: [
@@ -75,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="canonical" href="https://thusala.me" />
         <StructuredData />
       </head>
       <body className={`font-sans antialiased`}>
