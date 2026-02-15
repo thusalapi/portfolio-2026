@@ -76,9 +76,7 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className={`font-sans antialiased`}>
-        {children}
-      </body>
+      <body className={`font-sans antialiased`}>{children}</body>
     </html>
   );
 }
