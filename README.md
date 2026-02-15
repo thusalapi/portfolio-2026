@@ -2,7 +2,7 @@
 
 A modern, minimalist portfolio website built with Next.js, showcasing professional work and personal branding with an Apple-inspired design aesthetic.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://thusala.me)
+[![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-222222?style=for-the-badge&logo=github)](https://thusalapi.github.io/portfolio-2026/)
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
 ## Overview
@@ -47,11 +47,26 @@ pnpm dev
 
 ## Deployment
 
-This portfolio is automatically deployed to Vercel. To deploy:
+This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
 
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically build and deploy on every push to main
-3. Your site will be available at the Vercel-provided URL or your custom domain
+### Automatic Deployment
+
+1. Push your changes to the `main` branch:
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
+2. GitHub Actions will automatically build and deploy your site
+3. Your site will be available at: `https://thusalapi.github.io/portfolio-2026/`
+
+### Setting Up GitHub Pages (First Time)
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Pages** in the left sidebar
+3. Under **Source**, select "GitHub Actions"
+4. The workflow will run automatically on the next push
 
 ### Manual Deployment
 
@@ -59,11 +74,8 @@ This portfolio is automatically deployed to Vercel. To deploy:
 # Install dependencies
 pnpm install
 
-# Build for production
+# Build for production (creates static export in 'out' directory)
 pnpm build
-
-# Start production server
-pnpm start
 ```
 
 ## Project Structure
