@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
 import { StructuredData } from "@/components/structured-data";
+import { GradientBubbles } from "@/components/gradient-bubbles";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -76,7 +77,10 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className={`font-sans antialiased`}>{children}</body>
+      <body className={`font-sans antialiased`}>
+        <GradientBubbles />
+        {children}
+      </body>
     </html>
   );
 }
