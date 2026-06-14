@@ -74,6 +74,14 @@ const timelineEvents = [
     subtitle: 'Rootcode',
     description: 'Promoted to Associate Software Engineer, contributing to enterprise-level software solutions.',
     type: 'career',
+  },
+  {
+    year: '2026',
+    month: 'Jun',
+    title: 'Software Engineer',
+    subtitle: 'Rootcode',
+    description: 'Promoted to Software Engineer at Rootcode, leading development of enterprise-level software solutions.',
+    type: 'career',
     current: true,
   },
 ]

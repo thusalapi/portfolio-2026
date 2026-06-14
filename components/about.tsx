@@ -106,7 +106,7 @@ export function About() {
                 Current Role
               </p>
               <p className="text-foreground font-semibold">
-                Associate Software Engineer @ Rootcode
+                Software Engineer @ Rootcode
               </p>
               <p className="text-foreground/60 text-sm mt-1">
                 Enterprise-level software solutions
