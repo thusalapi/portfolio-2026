@@ -1,90 +1,100 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
+import Link from "next/link";
 
 const blogPosts = [
   {
-    title: 'Deploying Your React Portfolio',
-    excerpt: 'Learn how to deploy your React portfolio using GitHub Actions for continuous deployment.',
-    date: '5 July 2024',
-    tags: ['webdev', 'github', 'actions'],
-    url: 'https://medium.com/@thusalapi/how-i-deployed-my-portfolio-using-github-actions-0386722ad0b3',
+    title: "Deploying Your React Portfolio",
+    excerpt:
+      "Learn how to deploy your React portfolio using GitHub Actions for continuous deployment.",
+    date: "5 July 2024",
+    tags: ["webdev", "github", "actions"],
+    url: "https://medium.com/@thusalapi/how-i-deployed-my-portfolio-using-github-actions-0386722ad0b3",
   },
   {
-    title: 'Intern Interviews Journey',
-    excerpt: 'My experience with software engineering intern interviews including sample questions and preparation tips.',
-    date: '21 July 2024',
-    tags: ['interviews', 'internships', 'questions'],
-    url: 'https://medium.com/@thusalapi/software-engineering-intern-interviews-a-technical-journey-c2d003e50cbb',
+    title: "Intern Interviews Journey",
+    excerpt:
+      "My experience with software engineering intern interviews including sample questions and preparation tips.",
+    date: "21 July 2024",
+    tags: ["interviews", "internships", "questions"],
+    url: "https://medium.com/@thusalapi/software-engineering-intern-interviews-a-technical-journey-c2d003e50cbb",
   },
   {
-    title: 'How Docker Achieves Isolation Through Containerization',
-    excerpt: 'Understanding Docker containerization technology and how it enables application isolation and portability.',
-    date: '23 April 2025',
-    tags: ['docker', 'devops', 'containerization'],
-    url: 'https://rootcode.io/blog/how-docker-achieves-isolation-through-containerization',
+    title: "How Docker Achieves Isolation Through Containerization",
+    excerpt:
+      "Understanding Docker containerization technology and how it enables application isolation and portability.",
+    date: "23 April 2025",
+    tags: ["docker", "devops", "containerization"],
+    url: "https://rootcode.io/blog/how-docker-achieves-isolation-through-containerization",
   },
-]
+];
 
 const timelineEvents = [
   {
-    year: '2022',
-    month: 'Feb',
-    title: 'Started SE Journey',
-    subtitle: 'Software Engineering @ SLIIT',
-    description: 'Began my Software Engineering degree at SLIIT, diving deep into programming fundamentals.',
-    type: 'education',
+    year: "2022",
+    month: "Feb",
+    title: "Started SE Journey",
+    subtitle: "Software Engineering @ SLIIT",
+    description:
+      "Began my Software Engineering degree at SLIIT, diving deep into programming fundamentals.",
+    type: "education",
   },
   {
-    year: '2022',
-    month: 'Jun',
-    title: 'Competition Enthusiast',
-    subtitle: 'Hackathons & Ideathons',
-    description: 'Started actively participating in hackathons, ideathons, and coding competitions.',
-    type: 'competition',
+    year: "2022",
+    month: "Jun",
+    title: "Competition Enthusiast",
+    subtitle: "Hackathons & Ideathons",
+    description:
+      "Started actively participating in hackathons, ideathons, and coding competitions.",
+    type: "competition",
   },
   {
-    year: '2023',
-    month: 'Aug',
-    title: 'Freelance Career Launch',
-    subtitle: 'Digital Marketing & Development',
-    description: 'Launched my freelance career specializing in digital marketing and online presence.',
-    type: 'freelance',
+    year: "2023",
+    month: "Aug",
+    title: "Freelance Career Launch",
+    subtitle: "Digital Marketing & Development",
+    description:
+      "Launched my freelance career specializing in digital marketing and online presence.",
+    type: "freelance",
   },
   {
-    year: '2023',
-    month: 'Oct',
-    title: 'Web Development Specialist',
-    subtitle: 'Full-Stack Development',
-    description: 'Expanded services to include comprehensive web development and digital consultation.',
-    type: 'development',
+    year: "2023",
+    month: "Oct",
+    title: "Web Development Specialist",
+    subtitle: "Full-Stack Development",
+    description:
+      "Expanded services to include comprehensive web development and digital consultation.",
+    type: "development",
   },
   {
-    year: '2024',
-    month: 'Aug',
-    title: 'Software Engineer Intern',
-    subtitle: 'Rootcode',
-    description: 'Worked as a Software Engineer Intern at Rootcode, gaining hands-on experience in full-stack development.',
-    type: 'internship',
+    year: "2024",
+    month: "Aug",
+    title: "Software Engineer Intern",
+    subtitle: "Rootcode",
+    description:
+      "Worked as a Software Engineer Intern at Rootcode, gaining hands-on experience in full-stack development.",
+    type: "internship",
   },
   {
-    year: '2025',
-    month: 'Aug',
-    title: 'Associate Software Engineer',
-    subtitle: 'Rootcode',
-    description: 'Promoted to Associate Software Engineer, contributing to enterprise-level software solutions.',
-    type: 'career',
+    year: "2025",
+    month: "Aug",
+    title: "Associate Software Engineer",
+    subtitle: "Rootcode",
+    description:
+      "Promoted to Software Engineer at Rootcode, taking on greater ownership of architecture decisions and delivering complex features across the full stack.",
+    type: "career",
   },
   {
-    year: '2026',
-    month: 'Jun',
-    title: 'Software Engineer',
-    subtitle: 'Rootcode',
-    description: 'Promoted to Software Engineer at Rootcode, leading development of enterprise-level software solutions.',
-    type: 'career',
+    year: "2026",
+    month: "Jun",
+    title: "Software Engineer",
+    subtitle: "Rootcode",
+    description:
+      "Promoted to Software Engineer at Rootcode, taking on greater ownership of architecture decisions and delivering complex features across the full stack.",
+    type: "career",
     current: true,
   },
-]
+];
 
 export function BlogAndTimeline() {
   return (
@@ -100,7 +110,8 @@ export function BlogAndTimeline() {
               Writing & Insights
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl">
-              Sharing knowledge about web development, interviews, and technology trends.
+              Sharing knowledge about web development, interviews, and
+              technology trends.
             </p>
           </div>
 
@@ -117,7 +128,9 @@ export function BlogAndTimeline() {
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors flex-1">
                     {post.title}
                   </h3>
-                  <span className="text-sm text-foreground/60 whitespace-nowrap">{post.date}</span>
+                  <span className="text-sm text-foreground/60 whitespace-nowrap">
+                    {post.date}
+                  </span>
                 </div>
                 <p className="text-foreground/70 mb-4">{post.excerpt}</p>
                 <div className="flex flex-wrap gap-2">
@@ -169,8 +182,8 @@ export function BlogAndTimeline() {
                 <div
                   className={`absolute left-0 top-0 w-6 h-6 md:w-8 md:h-8 rounded-full border-2 flex items-center justify-center ${
                     event.current
-                      ? 'border-primary bg-primary'
-                      : 'border-border bg-background'
+                      ? "border-primary bg-primary"
+                      : "border-border bg-background"
                   }`}
                 >
                   {event.current && (
@@ -184,7 +197,9 @@ export function BlogAndTimeline() {
                     <span className="text-sm font-bold text-primary">
                       {event.year}
                     </span>
-                    <span className="text-sm text-foreground/60">{event.month}</span>
+                    <span className="text-sm text-foreground/60">
+                      {event.month}
+                    </span>
                     {event.current && (
                       <span className="text-xs font-semibold px-2.5 py-0.5 bg-primary text-primary-foreground rounded-full">
                         Current
@@ -205,5 +220,5 @@ export function BlogAndTimeline() {
         </div>
       </div>
     </section>
-  )
+  );
 }
