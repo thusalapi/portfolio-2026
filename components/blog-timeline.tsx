@@ -81,7 +81,7 @@ const timelineEvents = [
     title: "Associate Software Engineer",
     subtitle: "Rootcode",
     description:
-      "Promoted to Software Engineer at Rootcode, taking on greater ownership of architecture decisions and delivering complex features across the full stack.",
+      "Joined the engineering team full-time at Rootcode, contributing to production systems, collaborating across disciplines, and deepening expertise in full-stack development and microservices.",
     type: "career",
   },
   {

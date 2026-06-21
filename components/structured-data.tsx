@@ -8,7 +8,7 @@ export function StructuredData() {
     jobTitle: "Full-Stack Developer & Problem Solver",
     description:
       "Full-Stack Developer specializing in modern web development, microservices architecture, and scalable solutions.",
-    image: "https://thusala.me/avatar.png",
+    image: "https://thusala.me/profile.png",
     location: {
       "@type": "Place",
       name: "Sri Lanka",

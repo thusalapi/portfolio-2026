@@ -39,12 +39,21 @@ export const metadata: Metadata = {
     description:
       "Transform complex ideas into elegant, scalable solutions. Specializing in modern web development and microservices architecture.",
     siteName: "Thusala Piyarisi",
+    images: [
+      {
+        url: "/profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Thusala Piyarisi - Full-Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Thusala Piyarisi - Full-Stack Developer",
     description: "Transform complex ideas into elegant, scalable solutions.",
     creator: "@thusalapov",
+    images: ["/profile.png"],
   },
   alternates: {
     canonical: "/",
@@ -76,7 +85,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://thusala.me" />
         <StructuredData />
       </head>
       <body className={`font-sans antialiased`}>
