@@ -19,6 +19,7 @@ export function StructuredData() {
       "https://twitter.com/thusalapov",
       "https://stackoverflow.com/users/23903279/thusala-piyarisi",
       "https://medium.com/@thusalapi",
+      "https://ieeexplore.ieee.org/author/801414121539297",
     ],
     worksFor: {
       "@type": "Organization",

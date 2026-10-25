@@ -45,6 +45,12 @@ export function Header() {
             Projects
           </Link>
           <Link
+            href="#publications"
+            className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+          >
+            Research
+          </Link>
+          <Link
             href="#blog"
             className="text-sm text-foreground/70 hover:text-foreground transition-colors"
           >
