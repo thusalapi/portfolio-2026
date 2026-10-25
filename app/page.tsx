@@ -1,20 +1,24 @@
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
+import { Experience } from '@/components/experience'
 import { Projects } from '@/components/projects'
 import { Publications } from '@/components/publications'
-import { BlogAndTimeline } from '@/components/blog-timeline'
+import { Writing } from '@/components/writing'
 import { ContactFooter } from '@/components/contact-footer'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
-      <About />
-      <Projects />
-      <Publications />
-      <BlogAndTimeline />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Publications />
+        <Writing />
+      </main>
       <ContactFooter />
     </>
   )

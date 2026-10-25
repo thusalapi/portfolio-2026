@@ -1,3 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
+import { SectionHeading } from "@/components/section-heading";
+
 const publications = [
   {
     title:
@@ -32,80 +35,72 @@ const authors = [
 
 export function Publications() {
   return (
-    <section id="publications" className="py-24 px-6">
+    <section
+      id="publications"
+      className="py-20 md:py-28 px-6 border-t border-border"
+    >
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="mb-16 space-y-4">
-          <p className="text-sm font-medium text-primary tracking-wide uppercase">
-            Research
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Publications
-          </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl">
-            Peer-reviewed research on customization and extensibility in
-            multi-tenant SaaS architecture.
-          </p>
-        </div>
+        <SectionHeading
+          index="04"
+          label="Research"
+          title="Publications"
+          description="Peer-reviewed research on customization and extensibility in multi-tenant SaaS architecture."
+        />
 
-        {/* Publication List */}
-        <div className="space-y-6">
+        <ol className="divide-y divide-border border-y border-border">
           {publications.map((pub) => (
-            <a
-              key={pub.url}
-              href={pub.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-6 border border-border rounded-lg hover:border-primary/50 hover:shadow-lg transition-all duration-300 group"
-            >
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
-                  {pub.venueShort} {pub.year}
-                </span>
-                <span className="text-xs text-foreground/60">{pub.type}</span>
-              </div>
+            <li key={pub.url}>
+              <a
+                href={pub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group grid md:grid-cols-[10rem_1fr_auto] gap-x-10 gap-y-3 py-8"
+              >
+                <div className="font-mono text-xs text-muted-foreground space-y-1">
+                  <p className="text-foreground">
+                    {pub.venueShort} {pub.year}
+                  </p>
+                  <p>{pub.type}</p>
+                </div>
 
-              <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors leading-snug mb-3">
-                {pub.title}
-              </h3>
-
-              <p className="text-sm text-foreground/70 mb-2">
-                {authors.map((author, idx) => (
-                  <span key={author}>
-                    {author === "Thusala Piyarisi" ? (
-                      <span className="font-semibold text-foreground">
-                        {author}
+                <div className="space-y-3">
+                  <h3 className="text-lg font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {pub.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {authors.map((author, idx) => (
+                      <span key={author}>
+                        {author === "Thusala Piyarisi" ? (
+                          <span className="text-foreground font-medium">
+                            {author}
+                          </span>
+                        ) : (
+                          author
+                        )}
+                        {idx < authors.length - 1 && ", "}
                       </span>
-                    ) : (
-                      author
-                    )}
-                    {idx < authors.length - 1 && ", "}
-                  </span>
-                ))}
-              </p>
+                    ))}
+                  </p>
+                  <p className="text-sm text-muted-foreground italic">
+                    {pub.venue}
+                  </p>
+                </div>
 
-              <p className="text-sm text-foreground/60 italic mb-4">
-                {pub.venue}
-              </p>
-
-              <span className="text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
-                Read on IEEE Xplore →
-              </span>
-            </a>
+                <ArrowUpRight className="hidden md:block w-5 h-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              </a>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        {/* Call to action */}
-        <div className="mt-16 pt-12 border-t border-border text-center">
-          <a
-            href="https://ieeexplore.ieee.org/author/801414121539297"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
-          >
-            View IEEE Author Profile →
-          </a>
-        </div>
+        <a
+          href="https://ieeexplore.ieee.org/author/801414121539297"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors"
+        >
+          IEEE Xplore author profile
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
       </div>
     </section>
   );

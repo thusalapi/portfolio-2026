@@ -3,6 +3,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+
+const socialLinks = [
+  { name: "GitHub", url: "https://github.com/thusalapi" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/thusalapiyarisi" },
+  { name: "Medium", url: "https://medium.com/@thusalapi" },
+  { name: "IEEE", url: "https://ieeexplore.ieee.org/author/801414121539297" },
+];
+
+const facts = [
+  { value: "3+ yrs", label: "Shipping production software" },
+  { value: "2", label: "IEEE publications" },
+  { value: "10+", label: "Products shipped" },
+  { value: "7+", label: "Clients served" },
+];
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,153 +26,101 @@ export function Hero() {
     setIsVisible(true);
   }, []);
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/thusalapi",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-        </svg>
-      ),
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/thusalapiyarisi",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.735-2.004 1.442-.103.249-.129.597-.129.946v5.417h-3.554s.05-8.789 0-9.514h3.554v1.347c.42-.648 1.36-1.573 3.322-1.573 2.429 0 4.252 1.547 4.252 4.868v4.872zM5.337 8.855c-1.144 0-1.915-.762-1.915-1.715 0-.955.77-1.715 1.954-1.715 1.184 0 1.915.76 1.915 1.715 0 .953-.731 1.715-1.954 1.715zm1.586 11.597H3.587V9.017h3.336v11.435zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
-        </svg>
-      ),
-    },
-    {
-      name: "Medium",
-      url: "https://medium.com/@thusalapi",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42c1.87 0 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-        </svg>
-      ),
-    },
-    {
-      name: "Email",
-      url: "mailto:thusalapi@gmail.com",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
-    <section className="min-h-screen pt-32 pb-24 flex items-center justify-center px-6">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Content Section */}
-          <div
-            className={`space-y-8 transition-all duration-1000 transform ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-8"
-            }`}
-          >
-            <div className="space-y-4">
-              <p className="text-sm md:text-base font-medium text-muted-foreground uppercase tracking-widest">
-                Welcome, I'm
-              </p>
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+    <section className="relative pt-36 pb-20 md:pt-44 md:pb-24 px-6 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]"
+      />
+
+      <div
+        className={`max-w-5xl mx-auto transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-start">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-border bg-background/60 backdrop-blur font-mono text-xs text-muted-foreground">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60 animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Software Engineer @ Rootcode
+              <span className="hidden sm:inline">· Sri Lanka</span>
+            </div>
+
+            <div className="space-y-5">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground">
                 Thusala Piyarisi
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-light">
-                Full-Stack Developer & Problem Solver
+              <p className="text-xl md:text-2xl text-muted-foreground leading-snug max-w-2xl text-pretty">
+                I build multi-tenant SaaS platforms and{" "}
+                <span className="text-foreground">
+                  research how to keep them customizable at scale
+                </span>{" "}
+                without fragmenting the codebase.
               </p>
             </div>
 
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed max-w-lg">
-              I architect scalable solutions that bridge business vision and
-              technical excellence. Specializing in modern full-stack
-              development and microservices to ship products that matter.
-            </p>
-
-            {/* Social Links */}
-            <div className="flex gap-6 pt-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target={link.name !== "Email" ? "_blank" : undefined}
-                  rel={
-                    link.name !== "Email" ? "noopener noreferrer" : undefined
-                  }
-                  className="text-foreground/60 hover:text-primary transition-colors duration-200 hover:scale-110 transform"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="flex gap-4 pt-6">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="https://calendly.com/thusalapi/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200"
+                className="inline-flex items-center gap-2 h-11 px-5 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/85 transition-colors"
               >
-                Schedule a Call
+                Book a call
+                <ArrowRight className="w-4 h-4" />
               </a>
               <Link
-                href="#projects"
-                className="px-8 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors duration-200"
+                href="#experience"
+                className="inline-flex items-center h-11 px-5 border border-border text-foreground text-sm font-medium rounded-md hover:bg-secondary transition-colors"
               >
-                View Work
+                View experience
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="flex gap-8 pt-8 border-t border-border">
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-primary">
-                  10+
-                </p>
-                <p className="text-sm text-foreground/60">Projects Shipped</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-primary">
-                  3+
-                </p>
-                <p className="text-sm text-foreground/60">Years Building</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-primary">
-                  7+
-                </p>
-                <p className="text-sm text-foreground/60">Clients Served</p>
-              </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.name}
+                  <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Image Section */}
-          <div
-            className={`transition-all duration-1000 transform ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-8"
-            }`}
-          >
-            <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-secondary/50 border border-border">
-              <Image
-                src="/profile.png"
-                alt="Thusala Piyarisi"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+          <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl overflow-hidden border border-border bg-secondary order-first md:order-last">
+            <Image
+              src="/profile.png"
+              alt="Thusala Piyarisi"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
+
+        {/* Facts */}
+        <dl className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border rounded-lg overflow-hidden">
+          {facts.map((fact) => (
+            <div key={fact.label} className="p-5 md:p-6 bg-background">
+              <dt className="sr-only">{fact.label}</dt>
+              <dd className="font-mono text-2xl md:text-3xl font-medium text-foreground tracking-tight">
+                {fact.value}
+              </dd>
+              <dd className="mt-1 text-xs md:text-sm text-muted-foreground">
+                {fact.label}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

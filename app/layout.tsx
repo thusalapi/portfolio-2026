@@ -1,20 +1,30 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
 import { StructuredData } from "@/components/structured-data";
-import { GradientBubbles } from "@/components/gradient-bubbles";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fcfcfc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thusala.me"),
   title: {
-    default: "Thusala Piyarisi - Full-Stack Developer & Problem Solver",
+    default: "Thusala Piyarisi - Software Engineer",
     template: "%s | Thusala Piyarisi",
   },
   description:
@@ -35,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://thusala.me",
-    title: "Thusala Piyarisi - Full-Stack Developer & Problem Solver",
+    title: "Thusala Piyarisi - Software Engineer",
     description:
       "Transform complex ideas into elegant, scalable solutions. Specializing in modern web development and microservices architecture.",
     siteName: "Thusala Piyarisi",
@@ -83,13 +93,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <StructuredData />
       </head>
       <body className={`font-sans antialiased`}>
-        <GradientBubbles />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,116 +1,103 @@
-"use client";
+import { SectionHeading } from "@/components/section-heading";
+
+const focusAreas = [
+  "Multi-tenant SaaS architecture",
+  "Microservices & backend systems",
+  "Full-stack product engineering",
+  "Applied software engineering research",
+];
+
+const stack = [
+  { label: "Languages", items: "TypeScript, JavaScript, Java" },
+  { label: "Frontend", items: "React, Next.js, Three.js" },
+  { label: "Backend", items: "Node.js, NestJS, Spring Boot" },
+  { label: "Data", items: "PostgreSQL, MySQL, MongoDB" },
+  { label: "Infra", items: "Docker, AWS" },
+];
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6 bg-card">
+    <section id="about" className="py-20 md:py-28 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left side - About text */}
-          <div className="space-y-6">
-            <div>
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-2">
-                About Me
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                Building for Impact
-              </h2>
-            </div>
+        <SectionHeading
+          index="01"
+          label="About"
+          title="Engineering for systems that have to last"
+        />
 
-            <p className="text-base text-foreground/70 leading-relaxed">
-              I'm a full-stack developer from Sri Lanka with a passion for
-              solving complex problems through elegant code. My journey in
-              software engineering began in 2022 at SLIIT, and I've since
-              developed expertise across modern web technologies, microservices
-              architecture, and scalable systems.
+        <div className="grid md:grid-cols-[1.4fr_1fr] gap-12 lg:gap-20">
+          <div className="space-y-5 text-muted-foreground">
+            <p>
+              I&apos;m a software engineer at{" "}
+              <a
+                href="https://rootcode.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground"
+              >
+                Rootcode
+              </a>{" "}
+              in Sri Lanka, working on enterprise software across the full
+              stack — from service boundaries and data models to the interfaces
+              people use every day.
             </p>
-
-            <p className="text-base text-foreground/70 leading-relaxed">
-              At Rootcode, I contribute to enterprise-level software solutions
-              while continuously exploring new technologies. I believe that
-              great software combines technical excellence with thoughtful user
-              experience design—every line of code should have purpose.
+            <p>
+              Much of my recent work sits where engineering meets research: how
+              a multi-tenant SaaS platform can give every customer deep
+              customization without splintering a shared codebase. That work
+              led to{" "}
+              <a
+                href="#publications"
+                className="text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground"
+              >
+                two peer-reviewed IEEE papers
+              </a>{" "}
+              in 2026.
             </p>
-
-            <p className="text-base text-foreground/70 leading-relaxed">
-              Beyond coding, I'm competitive by nature. I've participated in
-              hackathons and coding competitions. This mindset drives me to ship
-              quality work, think innovatively, and lead teams effectively.
+            <p>
+              I care about software that is predictable in production: clear
+              boundaries, observable behaviour, and code the next engineer can
+              change with confidence. Before Rootcode I ran a freelance practice
+              shipping products for small businesses, which taught me to own
+              outcomes end to end.
             </p>
           </div>
 
-          {/* Right side - Skills & Experience */}
-          <div className="space-y-8">
-            {/* Core Competencies */}
+          <div className="space-y-10">
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                Core Competencies
+              <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
+                Focus
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Full-Stack Development",
-                  "Microservices",
-                  "Web Development",
-                  "Problem Solving",
-                  "Team Leadership",
-                  "Startup Strategy",
-                  "Digital Marketing",
-                ].map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-secondary text-foreground/80 rounded-full text-sm font-medium border border-border"
+              <ul className="space-y-2.5">
+                {focusAreas.map((area) => (
+                  <li
+                    key={area}
+                    className="flex items-start gap-3 text-sm text-foreground"
                   >
-                    {skill}
-                  </span>
+                    <span className="mt-2 w-1 h-1 rounded-full bg-primary shrink-0" />
+                    {area}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            {/* Tech Stack */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                Tech Stack
+              <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
+                Stack
               </h3>
-              <div className="space-y-3">
-                <div>
-                  <p className="text-sm font-medium text-foreground/60 mb-1">
-                    Frontend
-                  </p>
-                  <p className="text-foreground">React, Three.js, Next.js</p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground/60 mb-1">
-                    Backend
-                  </p>
-                  <p className="text-foreground">
-                    Node.js, Nest.js, Java, Spring Boot
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground/60 mb-1">
-                    Databases
-                  </p>
-                  <p className="text-foreground">MongoDB, MySQL, PostgreSQL</p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground/60 mb-1">
-                    Other
-                  </p>
-                  <p className="text-foreground">Docker, Microservices, AWS</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Current Status */}
-            <div className="p-4 bg-primary/5 border border-border rounded-lg">
-              <p className="text-sm font-medium text-primary mb-1">
-                Current Role
-              </p>
-              <p className="text-foreground font-semibold">
-                Software Engineer @ Rootcode
-              </p>
-              <p className="text-foreground/60 text-sm mt-1">
-                Enterprise-level software solutions
-              </p>
+              <dl className="divide-y divide-border border-y border-border">
+                {stack.map((row) => (
+                  <div
+                    key={row.label}
+                    className="grid grid-cols-[6rem_1fr] gap-4 py-2.5 text-sm"
+                  >
+                    <dt className="font-mono text-xs text-muted-foreground pt-0.5">
+                      {row.label}
+                    </dt>
+                    <dd className="text-foreground">{row.items}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </div>

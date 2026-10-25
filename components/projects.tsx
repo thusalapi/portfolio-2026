@@ -1,8 +1,30 @@
-"use client";
+import { ArrowUpRight } from "lucide-react";
+import { SectionHeading } from "@/components/section-heading";
 
-import Link from "next/link";
+type FeaturedProject = {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  tech: string[];
+  github?: string;
+  demo?: string;
+  status: string;
+  highlight?: boolean;
+};
 
-const featuredProjects = [
+const featuredProjects: FeaturedProject[] = [
+  {
+    id: 0,
+    title: "Suwa",
+    description:
+      "A self-hosted clinic management system for small medical and diagnostic centres, built with a real clinic as design partner. A shared patient registry backs two cores: billing with A4 invoices and POS receipts, and a schema-driven lab report engine that produces verified PDFs with calculated results and automatic Normal / Low / High flags.",
+    category: "Healthcare",
+    tech: ["Next.js", "PostgreSQL", "Drizzle", "React PDF", "Docker"],
+    github: "https://github.com/thusalapi/Suwa",
+    status: "In development",
+    highlight: true,
+  },
   {
     id: 1,
     title: "KamuLK",
@@ -81,129 +103,120 @@ const freelanceProjects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-20 md:py-28 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="mb-16 space-y-4">
-          <p className="text-sm font-medium text-primary tracking-wide uppercase">
-            Work & Portfolio
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl">
-            Selection of recent projects spanning full-stack development,
-            e-commerce, and innovative solutions.
-          </p>
-        </div>
+        <SectionHeading
+          index="03"
+          label="Projects"
+          title="Selected work"
+          description="Products I've designed and built end to end, from architecture through to production."
+        />
 
         {/* Featured Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {featuredProjects.map((project) => (
-            <div
+        <div className="grid md:grid-cols-2 gap-px bg-border border border-border rounded-lg overflow-hidden mb-16">
+          {featuredProjects.map((project, idx) => (
+            <article
               key={project.id}
-              className="group border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+              className={`group relative flex flex-col p-6 md:p-8 bg-background hover:bg-secondary/60 transition-colors ${
+                project.highlight ? "md:col-span-2" : ""
+              }`}
             >
-              <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-foreground/60 mt-1">
-                      {project.category}
-                    </p>
-                  </div>
-                  <span className="px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
-                    {project.status}
-                  </span>
-                </div>
-
-                <p className="text-foreground/70 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs px-2.5 py-1 bg-secondary text-foreground/70 rounded border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-3 pt-4">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                    >
-                      View Demo →
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                </div>
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <span className="font-mono text-xs text-muted-foreground">
+                  {String(idx + 1).padStart(2, "0")} · {project.category}
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      project.status === "Live" ? "bg-emerald-500" : "bg-amber-500"
+                    }`}
+                  />
+                  {project.status}
+                </span>
               </div>
-            </div>
+
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                {project.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-3xl">
+                {project.description}
+              </p>
+
+              <p className="font-mono text-xs text-muted-foreground mb-6">
+                {project.tech.join(" · ")}
+              </p>
+
+              <div className="mt-auto flex gap-5 text-sm">
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    Live site
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Source
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            </article>
           ))}
         </div>
 
         {/* Freelance Projects */}
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-6">
-              Freelance & Commercial
-            </h3>
-          </div>
+        <div>
+          <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
+            Client work
+          </h3>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {freelanceProjects.map((project, idx) => (
-              <a
-                key={idx}
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-6 border border-border rounded-lg hover:border-primary/50 hover:bg-secondary transition-all duration-300 group"
-              >
-                <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
-                  {project.title}
-                </h4>
-                <p className="text-foreground/70 text-sm mb-3">
-                  {project.description}
-                </p>
-                <p className="text-xs text-primary font-medium">
-                  {project.tech}
-                </p>
-              </a>
+          <ul className="divide-y divide-border border-y border-border">
+            {freelanceProjects.map((project) => (
+              <li key={project.title}>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group grid grid-cols-[1fr_auto] md:grid-cols-[12rem_1fr_12rem_auto] items-baseline gap-x-6 gap-y-1 py-4"
+                >
+                  <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                    {project.title}
+                  </span>
+                  <span className="hidden md:block text-sm text-muted-foreground">
+                    {project.description}
+                  </span>
+                  <span className="hidden md:block font-mono text-xs text-muted-foreground">
+                    {project.tech}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all self-center" />
+                  <span className="md:hidden col-span-2 text-sm text-muted-foreground">
+                    {project.description}
+                  </span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
-        {/* Call to action */}
-        <div className="mt-16 pt-12 border-t border-border text-center">
-          <p className="text-foreground/70 mb-4">Want to see more projects?</p>
-          <a
-            href="https://github.com/thusalapi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
-          >
-            Visit GitHub Profile →
-          </a>
-        </div>
+        <a
+          href="https://github.com/thusalapi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors"
+        >
+          More on GitHub
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
       </div>
     </section>
   );

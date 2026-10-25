@@ -5,7 +5,7 @@ export function StructuredData() {
     name: "Thusala Piyarisi",
     url: "https://thusala.me",
     email: "thusalapi@gmail.com",
-    jobTitle: "Full-Stack Developer & Problem Solver",
+    jobTitle: "Software Engineer",
     description:
       "Full-Stack Developer specializing in modern web development, microservices architecture, and scalable solutions.",
     image: "https://thusala.me/profile.png",
