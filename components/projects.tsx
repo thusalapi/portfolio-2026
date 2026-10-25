@@ -18,11 +18,11 @@ const featuredProjects: FeaturedProject[] = [
     id: 0,
     title: "Suwa",
     description:
-      "A self-hosted clinic management system for small medical and diagnostic centres, built with a real clinic as design partner. A shared patient registry backs two cores: billing with A4 invoices and POS receipts, and a schema-driven lab report engine that produces verified PDFs with calculated results and automatic Normal / Low / High flags.",
+      "A self-hosted clinic management system for small medical and diagnostic centres, built with a real clinic as design partner and now running in production there. A shared patient registry backs two cores: billing with A4 invoices and POS receipts, and a schema-driven lab report engine that produces verified PDFs with calculated results and automatic Normal / Low / High flags.",
     category: "Healthcare",
     tech: ["Next.js", "PostgreSQL", "Drizzle", "React PDF", "Docker"],
     github: "https://github.com/thusalapi/Suwa",
-    status: "In development",
+    status: "Live",
     highlight: true,
   },
   {
