@@ -13,6 +13,7 @@ const stack = [
   { label: "Backend", items: "Node.js, NestJS, Spring Boot" },
   { label: "Data", items: "PostgreSQL, MySQL, MongoDB" },
   { label: "Infra", items: "Docker, AWS" },
+  { label: "AI tooling", items: "Claude, Claude Code, Agent Skills, MCP" },
 ];
 
 export function About() {

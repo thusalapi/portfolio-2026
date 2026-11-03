@@ -9,6 +9,7 @@ type FeaturedProject = {
   tech: string[];
   github?: string;
   demo?: string;
+  demoLabel?: string;
   status: string;
   highlight?: boolean;
 };
@@ -22,6 +23,19 @@ const featuredProjects: FeaturedProject[] = [
     category: "Healthcare",
     tech: ["Next.js", "PostgreSQL", "Drizzle", "React PDF", "Docker"],
     github: "https://github.com/thusalapi/Suwa",
+    status: "Live",
+    highlight: true,
+  },
+  {
+    id: 5,
+    title: "Upstack",
+    description:
+      "A Sims-style isometric browser game where my own avatar climbs from a bedroom to the summit of a tech career. Setbacks like \"Rejected\" and \"Imposter syndrome\" fly in from shadowy Doubts. You dodge them, then turn the ones that land into lessons that become stair steps to the next island. Includes needs bars, a pie menu, an action queue and procedural skeletal animation.",
+    category: "Game",
+    tech: ["Three.js", "Vite", "WebAudio", "GitHub Actions"],
+    github: "https://github.com/thusalapi/upstack",
+    demo: "https://thusalapi.github.io/upstack/",
+    demoLabel: "Play the game",
     status: "Live",
     highlight: true,
   },
@@ -154,7 +168,7 @@ export function Projects() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 font-medium text-foreground hover:text-primary transition-colors"
                   >
-                    Live site
+                    {project.demoLabel ?? "Live site"}
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 )}
