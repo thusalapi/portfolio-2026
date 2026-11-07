@@ -27,6 +27,18 @@ const featuredProjects: FeaturedProject[] = [
     highlight: true,
   },
   {
+    id: 2,
+    title: "IsnocTalks",
+    description:
+      "A modern platform for coaching eSports players with live streaming, match analysis, and community features.",
+    category: "Web App",
+    tech: ["Next.js", "TypeScript", "Real-time Streaming"],
+    github: "https://github.com/thusalapi/isnoctalks",
+    demo: "https://isnoc-talks.vercel.app/",
+    status: "Live",
+    highlight: true,
+  },
+  {
     id: 5,
     title: "Upstack",
     description:
@@ -48,17 +60,6 @@ const featuredProjects: FeaturedProject[] = [
     tech: ["MERN Stack", "Microservices", "Real-time Tracking"],
     github: "https://github.com/thusalapi/KAMU-microservice",
     demo: "https://kamulk.vercel.app",
-    status: "Live",
-  },
-  {
-    id: 2,
-    title: "IsnocTalks",
-    description:
-      "A modern platform for coaching eSports players with live streaming, match analysis, and community features.",
-    category: "Web App",
-    tech: ["Next.js", "TypeScript", "Real-time Streaming"],
-    github: "https://github.com/thusalapi/isnoctalks",
-    demo: "https://isnoctalks.com",
     status: "Live",
   },
   {
