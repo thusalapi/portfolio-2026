@@ -44,9 +44,9 @@ const featuredProjects: FeaturedProject[] = [
     description:
       "A Sims-style isometric browser game where my own avatar climbs from a bedroom to the summit of a tech career. Setbacks like \"Rejected\" and \"Imposter syndrome\" fly in from shadowy Doubts. You dodge them, then turn the ones that land into lessons that become stair steps to the next island. Includes needs bars, a pie menu, an action queue and procedural skeletal animation.",
     category: "Game",
-    tech: ["Three.js", "Vite", "WebAudio", "GitHub Actions"],
+    tech: ["Three.js", "Vite", "WebAudio", "Vercel"],
     github: "https://github.com/thusalapi/upstack",
-    demo: "https://thusalapi.github.io/upstack/",
+    demo: "https://upstack-mu.vercel.app/",
     demoLabel: "Play the game",
     status: "Live",
     highlight: true,
