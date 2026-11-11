@@ -33,7 +33,7 @@ export function Writing() {
     <section id="writing" className="py-20 md:py-28 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto">
         <SectionHeading
-          index="05"
+          index="06"
           label="Writing"
           title="Notes & articles"
           description="Occasional write-ups on infrastructure, tooling, and the craft of software engineering."

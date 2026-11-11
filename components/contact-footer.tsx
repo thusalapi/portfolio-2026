@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/section-heading";
 const socialLinks = [
   { name: "GitHub", url: "https://github.com/thusalapi" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/thusalapiyarisi" },
+  { name: "YouTube", url: "https://www.youtube.com/@thusalapiyarisi" },
   { name: "Twitter", url: "https://twitter.com/thusalapov" },
   {
     name: "Stack Overflow",
@@ -20,7 +21,7 @@ export function ContactFooter() {
     <section id="contact" className="pt-20 md:pt-28 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto">
         <SectionHeading
-          index="06"
+          index="07"
           label="Contact"
           title="Working on something hard? Let's talk."
           description="I'm open to conversations about SaaS architecture, backend systems, research collaborations, and interesting engineering roles."

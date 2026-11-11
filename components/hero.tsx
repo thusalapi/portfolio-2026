@@ -8,6 +8,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 const socialLinks = [
   { name: "GitHub", url: "https://github.com/thusalapi" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/thusalapiyarisi" },
+  { name: "YouTube", url: "https://www.youtube.com/@thusalapiyarisi" },
   { name: "Medium", url: "https://medium.com/@thusalapi" },
   { name: "IEEE", url: "https://ieeexplore.ieee.org/author/801414121539297" },
 ];

@@ -52,6 +52,16 @@ const featuredProjects: FeaturedProject[] = [
     highlight: true,
   },
   {
+    id: 6,
+    title: "Pegbench",
+    description:
+      "A free toolbox of 24 everyday tools: finance calculators (including Sri Lankan salary tax and vehicle leasing), image compression and conversion, PDF merging, text diff, and developer utilities. It's a fully static site and every tool runs in the visitor's browser, so files never leave their device and there's no server to run.",
+    category: "Tools",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "pdf-lib"],
+    demo: "https://pegbench.com",
+    status: "Live",
+  },
+  {
     id: 1,
     title: "KamuLK",
     description:
